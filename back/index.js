@@ -34,7 +34,7 @@ app.post('/sendEmail', async (req, res)=>{
         const response = await sendMailing(name, email, message)
     
         res.status(200).json({
-            response,
+            response: response,
             message:'Mensaje enviado correctamente'
         })
 
