@@ -162,7 +162,7 @@ document.getElementById("contactForm").addEventListener("submit", async function
               // Enviar datos al backend
             const data = {name, email, message}
             
-            const response = await fetch('http://localhost:4000/sendEmail', {
+            const response = await fetch('https://nexdex-backend.vercel.app/sendEmail', {
                 method: 'POST',
                 headers: {
                 'Content-Type': 'application/json'
