@@ -1,5 +1,8 @@
 const nodemailer = require('nodemailer')
-const {APPLICATION_PASSWORD} = require('dotenv').config().parsed
+const dotenv = require('dotenv');
+dotenv.config();
+
+const { APPLICATION_PASSWORD } = dotenv.config().parsed || {};
 
 const authorizedEmails = ['nexdexdevelopers@gmail.com', 'erick.sanchezcorrea@gmail.com']
 

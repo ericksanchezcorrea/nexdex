@@ -41,6 +41,9 @@ app.post('/sendEmail', async (req, res)=>{
     }
 })
 
+app.get('/', (req, res) => {
+    res.status(200).json({message:'Welcome to NexDex'});
+});
 
 app.listen(4000)
 console.log(`server on port ${4000}`)
