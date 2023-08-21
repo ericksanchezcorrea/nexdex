@@ -33,7 +33,10 @@ app.post('/sendEmail', async (req, res)=>{
     
         const response = await sendMailing(name, email, message)
     
-        res.status(200).json({message:'Mensaje enviado correctamente'})
+        res.status(200).json({
+            response,
+            message:'Mensaje enviado correctamente'
+        })
 
     } catch (error) {
         res.status(400).json({error:'Hubo un error en el envío de los datos'})
