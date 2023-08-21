@@ -713,20 +713,25 @@
                 </div>
                 <div class="col-lg-5">
                     <div class="bg-primary rounded h-100 d-flex align-items-center p-5 wow zoomIn" data-wow-delay="0.9s">
-                        <form>
+                        <form id="contactForm">
                             <div class="row g-3">
                                 <div class="col-xl-12">
-                                    <input type="text" class="form-control bg-light border-0" placeholder="Nombre" style="height: 55px;">
+                                    <input type="text" id="name" class="form-control bg-light border-0" placeholder="Nombre" style="height: 55px;">
+                                    <p class="error error_name"></p>
                                 </div>
                                 <div class="col-12">
-                                    <input type="email" class="form-control bg-light border-0" placeholder="Email" style="height: 55px;">
+                                    <input type="email" id="email" class="form-control bg-light border-0" placeholder="Email" style="height: 55px;">
+                                    <p class="error error_email"></p>
                                 </div>
                              
                                 <div class="col-12">
-                                    <textarea class="form-control bg-light border-0" rows="3" placeholder="Mensaje"></textarea>
+                                    <textarea id="message" class="form-control bg-light border-0" rows="3" placeholder="Mensaje"></textarea>
+                                    <p class="error error_message"></p>
                                 </div>
                                 <div class="col-12">
                                     <button class="btn btn-dark w-100 py-3" type="submit">Enviar</button>
+                                    <p class="success">¡Tu mensaje ha sido enviado!</p>
+                                    <p class="error_response">Hubo un error al intenar enviar el formulario.</p>
                                 </div>
                             </div>
                         </form>

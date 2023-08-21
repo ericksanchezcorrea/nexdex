@@ -124,3 +124,93 @@
     
 })(jQuery);
 
+
+let errors
+
+document.getElementById("contactForm").addEventListener("submit", async function(e) {
+    e.preventDefault(); 
+    
+    // Obtener valores de los campos
+    let  name = document.getElementById("name").value;
+    let email = document.getElementById("email").value;
+    let message = document.getElementById("message").value;
+    
+    // Validaciones
+    errors =  validation(name, email, message)
+
+    // Mostrar errores al usuario
+
+    const error_name = document.querySelector(".error_name")
+    const error_email = document.querySelector(".error_email")
+    const error_message = document.querySelector(".error_message")
+
+    const success = document.querySelector(".success")
+
+
+    error_name.classList.add('error_block')
+    error_name.textContent = `${errors.name ?? ''}`
+
+    error_email.classList.add('error_block')
+    error_email.textContent = `${errors.email ?? ''}`
+
+    error_message.classList.add('error_block')
+    error_message.textContent = `${errors.message ?? ''}`
+    
+    if(Object.keys(errors).length === 0) {
+
+        try {
+              // Enviar datos al backend
+            const data = {name, email, message}
+            
+            const response = await fetch('http://localhost:4000/sendEmail', {
+                method: 'POST',
+                headers: {
+                'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+
+            const resp = await response.json()
+            
+            if(resp.error) throw new Error("Hubo un error al enviar el enviar el formulario. Inténtelo más tarde")
+
+
+            // Limpia los campos después de enviar
+            document.getElementById("name").value = "";
+            document.getElementById("email").value = "";
+            document.getElementById("message").value = "";
+
+            success.style.display = 'block'
+
+            setTimeout(() => {
+                success.style.display = 'none'
+            }, 2000);
+
+        } catch (error) {
+
+            const error_response = document.querySelector(".error_response")
+            error_response.style.display = "block"
+            
+            setTimeout(() => {
+                success.style.display = 'none'
+            }, 2000);
+        }
+      
+    }
+    
+});
+
+
+function validation(name, email, message){
+    
+    const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/
+    let errors = {}
+
+    if(name ==='') errors.name = 'Ingrese un nombre'
+    if(message ==='') errors.message = 'Escriba un mensaje'
+    
+    if(!emailRegex.test(email)) errors.email = 'El email no es válido'
+    if(email ==='') errors.email = 'Ingrese un email'
+    
+    return errors
+}
