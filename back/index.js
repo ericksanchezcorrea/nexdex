@@ -31,10 +31,10 @@ app.post('/sendEmail', async (req, res)=>{
         if(!emailRegex.test(email)) return res.status(400).json({error:'El email no es válido'})
     
     
-        const response = await sendMailing(name, email, message)
+        const {sendToNexDex, sendToCustomer} = await sendMailing(name, email, message)
     
         res.status(200).json({
-            response: response,
+            response: [sendToNexDex, sendToCustomer],
             message:'Mensaje enviado correctamente'
         })
 
