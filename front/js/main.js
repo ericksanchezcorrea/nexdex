@@ -171,6 +171,7 @@ document.getElementById("contactForm").addEventListener("submit", async function
             })
 
             const resp = await response.json()
+            console.log(resp)
             
             if(resp.error) throw new Error("Hubo un error al enviar el enviar el formulario. Inténtelo más tarde")
 
