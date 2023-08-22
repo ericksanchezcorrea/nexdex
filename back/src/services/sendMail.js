@@ -97,10 +97,10 @@ async function sendMailing(name, email, message) {
             ` 
         });
     
-        return APPLICATION_PASSWORD
+        return sendToCustomer
 
     } catch (error) {
-        return {error, APPLICATION_PASSWORD}
+        return error
     }
 }
 

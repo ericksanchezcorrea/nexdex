@@ -145,6 +145,7 @@ document.getElementById("contactForm").addEventListener("submit", async function
     const error_message = document.querySelector(".error_message")
 
     const success = document.querySelector(".success")
+    const error_response = document.querySelector(".error_response")
 
 
     error_name.classList.add('error_block')
@@ -171,7 +172,6 @@ document.getElementById("contactForm").addEventListener("submit", async function
             })
 
             const resp = await response.json()
-            console.log(resp)
             
             if(resp.error) throw new Error("Hubo un error al enviar el enviar el formulario. Inténtelo más tarde")
 
@@ -182,19 +182,14 @@ document.getElementById("contactForm").addEventListener("submit", async function
             document.getElementById("message").value = "";
 
             success.style.display = 'block'
+            error_response.style.display = "none"
 
             setTimeout(() => {
                 success.style.display = 'none'
             }, 2000);
 
         } catch (error) {
-
-            const error_response = document.querySelector(".error_response")
-            error_response.style.display = "block"
-            
-            setTimeout(() => {
-                success.style.display = 'none'
-            }, 2000);
+            error_response.style.display = "block"      
         }
       
     }
