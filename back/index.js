@@ -35,6 +35,7 @@ app.post('/sendEmail', async (req, res)=>{
     
         res.status(200).json({
             responseData: response,
+            data: 'datos',
             message:'Mensaje enviado correctamente'
         })
 
