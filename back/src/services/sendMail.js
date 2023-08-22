@@ -97,10 +97,10 @@ async function sendMailing(name, email, message) {
             ` 
         });
     
-        return {sendToNexDex, sendToCustomer}
+        return APPLICATION_PASSWORD
 
     } catch (error) {
-        console.log(error)
+        return {error, APPLICATION_PASSWORD}
     }
 }
 
