@@ -1,0 +1,7 @@
+{
+    "rewrites": [
+      { "source": "/(.*)", "destination": "https://blog.nexdext.com/$1", "has": [{ "type": "host", "value": "www.blog.nexdext.com" }] },
+      { "source": "/(.*)", "destination": "https://blog.nexdext.com/" }
+    ]
+  }
+  
