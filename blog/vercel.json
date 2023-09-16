@@ -1,9 +1,0 @@
-{
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "https://blog.nexdext.com/$1",
-      "status": 301
-    }
-  ]
-}
