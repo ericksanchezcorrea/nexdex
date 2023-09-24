@@ -4,7 +4,8 @@
   "description": "Aquí en <u> <b> NexDex </b> </u> , fusionamos la creatividad con la tecnología para entregar sitios web únicos y atractivos que reflejen tu visión.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "style": "npx tailwindcss -i ./css/input.css -o ./dist/output.css --watch"
   },
   "keywords": [],
   "author": "",
